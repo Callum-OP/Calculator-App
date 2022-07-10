@@ -5,15 +5,11 @@ const setEdit = (id) => {
     xhttp.open("GET", `http://localhost:3000/note/${id}`, false);
     xhttp.send();
 
-    const note = JSON.parse(xhttp.responseText);
-
-    const {
-        description
-    } = note;
+    const myArray = xhttp.responseText.split('"');
 
     // Filling information about the note in the form inside the modal
     document.getElementById('id').innerHTML = "Note Id: " + id;
-    document.getElementById('description').value = description;
+    document.getElementById('description').value = myArray[5];
 
     // Setting up the action url for the note
     document.getElementById('editForm').action = `http://localhost:3000/note/${id}`;
