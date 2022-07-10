@@ -12,6 +12,7 @@ const setEdit = (id) => {
     } = note;
 
     // Filling information about the note in the form inside the modal
+    document.getElementById('id').innerHTML = "Note Id: " + id;
     document.getElementById('description').value = description;
 
     // Setting up the action url for the note
